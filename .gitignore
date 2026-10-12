@@ -1,0 +1,40 @@
+# Зависимости
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Сборка
+dist/
+build/
+out/
+coverage/
+*.tsbuildinfo
+
+# Окружение и секреты
+.env
+.env.*
+!.env.example
+.envrc
+.direnv/
+
+# Логи
+*.log
+npm-debug.log*
+
+# Ставятся по BOOTSTRAP.md (openspec init, ui-ux-pro-max-cli)
+.agents/skills/
+.claude/skills
+.claude/commands/
+.opencode/
+
+# Локальные настройки Claude Code
+.claude/settings.local.json
+.claude/worktrees/
+
+# ОС и редакторы
+.DS_Store
+.idea/
+.vscode/
+*.swp

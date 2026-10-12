@@ -1,0 +1,20 @@
+# MCP-серверы Codex для этого проекта (читаются только для доверенных проектов).
+# Держите в синхроне с .mcp.json (Claude Code) и opencode.json (OpenCode).
+
+[mcp_servers.chrome-devtools]
+command = "npx"
+args = ["-y", "chrome-devtools-mcp@1.10.1"]
+
+[mcp_servers.shadcn]
+command = "npx"
+args = ["-y", "shadcn@4.21.4", "mcp"]
+
+[mcp_servers.context7]
+command = "npx"
+args = ["-y", "@upstash/context7-mcp@4.3.0"]
+
+[mcp_servers.postgres]
+command = "uvx"
+args = ["postgres-mcp@0.3.0", "--access-mode=restricted"]
+env_vars = ["DATABASE_URI"]
+startup_timeout_sec = 30

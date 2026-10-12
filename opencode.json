@@ -1,0 +1,32 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "chrome-devtools": {
+      "type": "local",
+      "command": ["npx", "-y", "chrome-devtools-mcp@1.10.1"]
+    },
+    "shadcn": {
+      "type": "local",
+      "command": ["npx", "-y", "shadcn@4.21.4", "mcp"]
+    },
+    "context7": {
+      "type": "local",
+      "command": ["npx", "-y", "@upstash/context7-mcp@4.3.0"]
+    },
+    "postgres": {
+      "type": "local",
+      "command": ["uvx", "postgres-mcp@0.3.0", "--access-mode=restricted"],
+      "environment": {
+        "DATABASE_URI": "{env:DATABASE_URI}"
+      }
+    }
+  },
+  "permission": {
+    "chrome-devtools_list_pages": "allow",
+    "chrome-devtools_new_page": "allow",
+    "chrome-devtools_navigate_page": "allow",
+    "chrome-devtools_take_snapshot": "allow",
+    "chrome-devtools_take_screenshot": "allow",
+    "context7_*": "allow"
+  }
+}
