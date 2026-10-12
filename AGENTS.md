@@ -28,6 +28,8 @@
 | Реализовать | `/opsx:apply` | `$openspec-apply-change` | `/opsx-apply` |
 | Архивировать | `/opsx:archive` | `$openspec-archive-change` | `/opsx-archive` |
 | Исследовать | `/opsx:explore` | `$openspec-explore` | `/opsx-explore` |
+| Обновить план change | `/opsx:update` | `$openspec-update-change` | `/opsx-update` |
+| Влить delta-спеки без архивации | `/opsx:sync` | `$openspec-sync-specs` | `/opsx-sync` |
 
 ## Правила для агентов
 

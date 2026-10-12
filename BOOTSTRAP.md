@@ -26,7 +26,7 @@
 Если CLI нет, попросите пользователя установить: `npm install -g @fission-ai/openspec`.
 
 ```
-openspec init --tools claude,codex,opencode --no-animation
+openspec init --tools claude,codex,opencode --profile core --no-animation
 ```
 
 Оставьте в `--tools` только выбранных агентов. Не передавайте `--language`: `openspec/config.yaml` уже есть в шаблоне, и с этим флагом init завершится ошибкой. Появятся `.claude/commands/opsx/`, `.opencode/commands/` и скиллы `openspec-*`.
