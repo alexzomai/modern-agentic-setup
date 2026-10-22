@@ -23,7 +23,7 @@ coverage/
 *.log
 npm-debug.log*
 
-# Ставятся по BOOTSTRAP.md (openspec init, ui-ux-pro-max-cli)
+# Ставятся по BOOTSTRAP.md (openspec init)
 .agents/skills/
 .claude/skills
 .claude/commands/

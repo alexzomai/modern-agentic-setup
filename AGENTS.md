@@ -71,10 +71,6 @@
 
 Скиллы лежат в `.agents/skills/*/SKILL.md` и ставятся по `BOOTSTRAP.md`. Codex и OpenCode читают `.agents/skills/` напрямую; для Claude Code `.claude/skills` — симлинк на неё. Агентам без поддержки скиллов читать и применять их нужно вручную.
 
-- Для работы с интерфейсами сначала прочитайте `.agents/skills/ui-ux-pro-max/SKILL.md` (если скилл установлен).
-- Поиск по данным скилла (нужен Python 3):
-  `python3 .agents/skills/ui-ux-pro-max/scripts/search.py "<запрос>" --design-system -p "<project-name>"`
-
 ## Команды
 
 <!-- Заполнить после выбора стека -->

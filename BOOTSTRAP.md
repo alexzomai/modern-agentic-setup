@@ -9,13 +9,13 @@
 - Язык артефактов OpenSpec (например, русский или английский).
 - Какие агенты используются: Claude Code, Codex, OpenCode (по умолчанию все три).
 - Нужна ли база данных Postgres. Если нет, удалите сервер `postgres` из `.mcp.json`, `opencode.json`, `.codex/config.toml`, упоминание о нём в разделе «MCP» в `AGENTS.md` и `.env.example`.
-- Нужен ли UI. Если нет, пропустите шаг 5, удалите сервер `shadcn` из трёх конфигов MCP и упоминания UI-скилла и `shadcn` из `AGENTS.md`.
+- Нужен ли UI. Если нет, удалите сервер `shadcn` из трёх конфигов MCP и упоминания `shadcn` из `AGENTS.md`.
 - Лицензия проекта: оставить MIT с именем пользователя, выбрать другую или убрать (для закрытого проекта).
 - Куда пушить проект (URL нового репозитория), если `origin` всё ещё указывает на репозиторий шаблона (см. шаг 3).
 
 ## 2. Проверьте окружение
 
-Нужны `node`/`npx`, `python3` (для скилла UI/UX), `uv`/`uvx` (для сервера `postgres`). Не устанавливайте их сами: если чего-то нет, сообщите пользователю.
+Нужны `node`/`npx`, `uv`/`uvx` (для сервера `postgres`). Не устанавливайте их сами: если чего-то нет, сообщите пользователю.
 
 ## 3. Превратите шаблон в проект
 
@@ -56,15 +56,7 @@ context: |
 
 OpenCode сам читает `.agents/skills/` и `.claude/skills/`, поэтому удалите его дубликат скиллов: `rm -rf .opencode/skills`. Команды в `.opencode/commands/` оставьте.
 
-## 5. Установите скилл UI/UX (если нужен UI)
-
-```
-npx -y ui-ux-pro-max-cli@2.15.0 init --ai claude
-```
-
-Если классификатор прав блокирует команду, попросите пользователя запустить её в терминале (в сессии Claude Code: `! npx -y ui-ux-pro-max-cli@2.15.0 init --ai claude`).
-
-## 6. Перенесите скиллы в `.agents/skills`
+## 5. Перенесите скиллы в `.agents/skills`
 
 Установщики пишут в `.claude/skills/`. Скиллы должны жить в `.agents/skills/`, а `.claude/skills` быть симлинком на неё. Если `.claude/skills` уже симлинк, пропустите шаг.
 
@@ -77,7 +69,7 @@ ln -s ../.agents/skills .claude/skills
 
 Если в `.agents/skills` уже есть скилл с тем же именем, не перезаписывайте его молча: сначала сравните версии.
 
-## 7. Подключите MCP
+## 6. Подключите MCP
 
 Попросите пользователя:
 
@@ -86,7 +78,7 @@ ln -s ../.agents/skills .claude/skills
 - **OpenCode:** проверить `opencode mcp list`.
 - **Postgres:** перед запуском агента экспортировать переменные из `.env` в shell (`set -a; source .env; set +a` или direnv). Агенты не читают `.env` сами.
 
-## 8. Проверка
+## 7. Проверка
 
 - [ ] В `AGENTS.md` нет `<project-name>` и плейсхолдеров `<команда>`.
 - [ ] `README.md` содержит только название и описание проекта.
@@ -95,7 +87,6 @@ ln -s ../.agents/skills .claude/skills
 - [ ] Остатков шаблона нет: `grep -rniE "шаблон|template|modern-agentic-setup|<project-name>|<команда>" --exclude-dir=.git --exclude-dir=.agents --exclude-dir=.claude --exclude-dir=.opencode --exclude-dir=node_modules .` ничего не находит, кроме `BOOTSTRAP.md` и строки про него в начале `AGENTS.md`.
 - [ ] `openspec/config.yaml` существует и содержит язык артефактов.
 - [ ] Скиллы лежат в `.agents/skills/`, `.claude/skills` — симлинк на неё, `.opencode/skills` нет.
-- [ ] Для UI: есть `.agents/skills/ui-ux-pro-max/SKILL.md`.
 - [ ] Наборы серверов в `.mcp.json`, `opencode.json` и `.codex/config.toml` совпадают.
 - [ ] `.env` (если есть) не отслеживается git.
 
